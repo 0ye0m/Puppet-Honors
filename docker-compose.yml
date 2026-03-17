@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  puppet-server:
+    build: .
+    container_name: puppet-server
+    hostname: puppet
+    ports:
+      - "8140:8140"
+    volumes:
+      - ./puppet.conf:/etc/puppetlabs/puppet/puppet.conf
+      - ./autosign.conf:/etc/puppetlabs/puppet/autosign.conf
+      - ./site.pp:/etc/puppetlabs/code/environments/production/manifests/site.pp
+      - ./manifests:/etc/puppetlabs/code/environments/production/manifests/custom
+    networks:
+      - puppet-net
+
+networks:
+  puppet-net:
+    driver: bridge
