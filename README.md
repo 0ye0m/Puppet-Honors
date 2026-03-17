@@ -1,29 +1,23 @@
 # Puppet Windows Automation Lab
 
-**Author:** Your Name  
+**Author:** Om Mandwade 
 **Date:** March 2026
 
-This repository contains a set of Puppet manifests that automate various configuration tasks on a Windows machine. Each manifest is self-contained and demonstrates a core Puppet capability.
+This repository contains a complete Puppet setup that automates several Windows configuration tasks. All levels are defined in a single `site.pp` manifest.
 
-## Structure
+## Levels Included
 
-- `manifests/` – Contains all level manifests.
-- `site.pp` – The active manifest (copied from one of the levels).
-- `deploy.ps1` – Helper script to deploy a specific level.
-
-## Levels
-
-1. **File Creation** – Creates `C:\Puppet-Lab\welcome.txt` with system facts.
-2. **Service Control** – Disables the Windows Search service (`WSearch`).
-3. **Registry Management** – Adds `HKLM\Software\MyCompany\DeploymentID`.
-4. **Silent Install** – Installs 7-Zip via Chocolatey.
-5. **System Report** – Generates a facts-based report in `C:\Puppet-Lab\system_info.txt`.
-6. **Self-Healing Website** – Deploys IIS with a custom homepage that auto-restores if changed.
+1. **File Creation** – Creates `C:\Puppet-Lab\welcome.txt` with a custom message.
+2. **Service Control** – Stops and disables the Windows Search service (`WSearch`).
+3. **Registry Management** – Adds `HKLM\Software\MyCompany\DeploymentID` registry value.
+4. **Silent Installation** – Installs 7‑Zip using Chocolatey.
+5. **System Report** – Generates `C:\Puppet-Lab\system_info.txt` with hardware facts.
+6. **Self-Healing Website** – Installs IIS, ensures the service runs, and deploys a custom homepage that automatically reverts if changed.
 
 ## Prerequisites
 
 - Docker Desktop (on the master host)
-- Puppet Agent installed on the Windows machine
+- Puppet Agent installed on the Windows machine (same machine or another)
 - Administrator privileges on the Windows agent
 
 ## Quick Start
